@@ -8,15 +8,15 @@
 </head>
 <body>
   <main class="layout">
+    <!-- Painel lateral com controles e texto contextual para a simulação -->
     <section class="panel">
-<<<<<
       <span class="badge"><span></span>Modo interativo</span>
       <h1>Simulação: Criança Pulando Corda</h1>
       <p>
         Experimente uma animação estilizada e dinâmica. Ajuste a velocidade, pause e
         observe detalhes de peso, sombra e ambiente enquanto a corda gira.
-====
       </p>
+      <!-- Controle de velocidade com saída numérica sincronizada -->
       <label class="control speed-control">
         <div class="control-row">
           <span>Velocidade da corda</span>
@@ -24,9 +24,12 @@
         </div>
         <input id="speed" type="range" min="0.6" max="2.5" step="0.1" value="1.4" />
       </label>
+      <!-- Botão de pausa/retomada (também acessível pelo teclado) -->
       <button id="toggle" type="button">Pausar</button>
       <p class="hint">Use barra de espaço para pausar/retomar. Respeitamos <em>reduzir animações</em> do seu sistema.</p>
     </section>
+
+    <!-- Área visual principal onde o canvas renderiza a cena animada -->
     <section class="stage-wrapper">
       <canvas id="scene" width="900" height="520" aria-label="Criança pulando corda"></canvas>
     </section>

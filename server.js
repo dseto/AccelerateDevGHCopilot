@@ -1,9 +1,11 @@
+// Servidor HTTP simples para servir a simulação sem depender de ferramentas extras
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 4173;
 const PUBLIC_DIR = __dirname;
+// Tipos MIME básicos para conteúdos estáticos mais comuns
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
@@ -16,6 +18,7 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
 };
 
+// Lê o arquivo do disco e envia com o cabeçalho adequado
 function sendFile(res, filePath, status = 200) {
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
@@ -30,6 +33,7 @@ function sendFile(res, filePath, status = 200) {
   });
 }
 
+// Roteamento mínimo: tenta servir o caminho solicitado ou cai para o index
 const server = http.createServer((req, res) => {
   const urlPath = req.url.split('?')[0];
   const safePath = urlPath === '/' ? '/index.html' : urlPath;
@@ -46,6 +50,7 @@ const server = http.createServer((req, res) => {
   });
 });
 
+// Inicializa o servidor na porta escolhida
 server.listen(PORT, () => {
   console.log(`Servidor iniciado em http://localhost:${PORT}`);
 });

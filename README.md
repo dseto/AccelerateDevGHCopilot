@@ -1,6 +1,6 @@
 # Simulação de Pular Corda
 
-Abra a página `index.html` ou rode um servidor local para ver a criança pulando corda com controles de velocidade, pausa e acesso via teclado (barra de espaço).
+Abra a página `index.html` ou rode um servidor local para ver a criança pulando corda com controles de velocidade, pausa e acesso via teclado (barra de espaço). A prévia traz céu com nuvens, solo texturizado, sombra e corpo deformando para dar sensação de peso e fluidez.
 
 ## Como executar a prévia
 1. Instale as dependências (apenas o Node padrão é necessário):
