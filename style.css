@@ -1,0 +1,177 @@
+/* Paleta de cores centralizada para manter consistência visual */
+:root {
+  --sky: #c8ddff;
+  --sky-top: #e8f1ff;
+  --ground: #d6c199;
+  --ground-dark: #c0a274;
+  --rope: #ff775f;
+  --rope-glow: rgba(255, 119, 95, 0.45);
+  --shirt: #5c8ef2;
+  --shorts: #2d3e6f;
+  --skin: #f1c27d;
+  --hair: #2c1b10;
+  --shadow: rgba(0, 0, 0, 0.2);
+  --text: #0f1a2b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Plano de fundo geral com gradientes e layout centralizado */
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 20%, #f4f8ff, #e7efff 30%, #d6e6ff 60%, #c6d8f5),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky) 40%, var(--ground) 40%, var(--ground-dark) 100%);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/* Grid que separa painel de controles e palco da animação */
+.layout {
+  width: min(1180px, 100%);
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.75rem;
+  padding: 1.75rem;
+}
+
+/* Cartão lateral com efeito glassmorphism e sombras suaves */
+.panel {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(212, 225, 245, 0.9);
+  box-shadow: 0 20px 40px rgba(17, 46, 94, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-radius: 18px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.panel p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Selo informativo exibido no topo do painel */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, #ebf1ff, #dfe8ff);
+  color: #1e3563;
+  width: fit-content;
+}
+
+.badge span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4c87f9, #3262d2);
+  box-shadow: 0 0 0 4px rgba(76, 135, 249, 0.25);
+}
+
+/* Estrutura base dos controles, alinhando texto e elementos */
+.control {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Saída numérica da velocidade da corda com fonte tabular */
+.speed-control output {
+  font-variant-numeric: tabular-nums;
+  color: #1f3b75;
+  background: #e6edff;
+  border-radius: 10px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.95rem;
+  min-width: 3ch;
+  text-align: center;
+}
+
+/* Ajuste da cor do slider para combinar com a marca */
+input[type="range"] {
+  accent-color: #4a7cf3;
+}
+
+/* Botão principal com gradiente, sombra e feedback ao toque */
+button {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(50, 98, 210, 0.12);
+  background: linear-gradient(135deg, #4c87f9, #3262d2);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 14px 26px rgba(50, 98, 210, 0.32);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(50, 98, 210, 0.35);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 10px 18px rgba(50, 98, 210, 0.25);
+}
+
+/* Texto auxiliar sobre controles acessíveis */
+.hint {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2f3d54;
+}
+
+.hint em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* Moldura do canvas: mantém proporção, borda e sombra interna */
+.stage-wrapper {
+  background: linear-gradient(var(--sky-top) 60%, var(--ground) 40%);
+  border-radius: 20px;
+  border: 1px solid rgba(207, 217, 237, 0.9);
+  min-height: 560px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 24px 38px rgba(17, 46, 94, 0.18);
+}
+
+/* Canvas ocupa todo o espaço do contêiner e se adapta no resize */
+#scene {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
