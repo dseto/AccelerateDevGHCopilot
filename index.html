@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulação de Pular Corda</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="panel">
+      <h1>Simulação: Criança Pulando Corda</h1>
+      <p>
+        Experimente uma animação estilizada de uma criança pulando corda.
+        Ajuste a velocidade do giro e veja os detalhes do movimento.
+      </p>
+      <label class="control speed-control">
+        <div class="control-row">
+          <span>Velocidade da corda</span>
+          <output id="speedValue" for="speed">1.4x</output>
+        </div>
+        <input id="speed" type="range" min="0.6" max="2.5" step="0.1" value="1.4" />
+      </label>
+      <button id="toggle" type="button">Pausar</button>
+      <p class="hint">Use barra de espaço para pausar/retomar. Respeitamos <em>reduzir animações</em> do seu sistema.</p>
+    </section>
+    <section class="stage-wrapper">
+      <canvas id="scene" width="900" height="520" aria-label="Criança pulando corda"></canvas>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

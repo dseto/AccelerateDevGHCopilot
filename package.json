@@ -1,0 +1,12 @@
+{
+  "name": "jump-rope-simulator",
+  "version": "1.0.0",
+  "description": "Simulação de criança pulando corda em HTML5 canvas.",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["jump", "rope", "canvas", "simulacao"],
+  "author": "",
+  "license": "MIT"
+}
